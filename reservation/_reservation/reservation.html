@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>reveal-md</title>
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/black.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/zenburn.css" />
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template"># Reservations app til cafe
+
+Denne app vil indeholde 2 forskellige brugertyper
+
++ Kunder
++ Medarbejdere
+
+Måske vil der være 2 apps, en for hver brugertype.
+</script></section><section  data-markdown><script type="text/template">
+# KundeView
+
+En kunde vil kunne oprette sig selv som bruger og logge ind for derefter at kunne:
+
++ Oprette reservation
++ Manage reservation
+
+Derudover får en kunde 1 kupon pr. person i reservationen som kan indløses for drikkevarer i caféen, disse kuponner føres system over i appen.
+</script></section><section  data-markdown><script type="text/template">
+## Oprette reservation
+
+Reservationen oprettes ved et bord meget lignende en biograf reservation hvor kunden vælger et bord som passer til hans parametre:
+
++ Antal personer
+    + stole ved bord kan max være 2 mere end antal personer
++ Tidspunkt (afhænger af)
+    + dag på ugen
+    + andre reservationer
+
+Ud over bord reservationen kan man også bestille en eller flere guruer som kommer og spiller med en. (Der skal være plads ved bordet)
+</script></section><section  data-markdown><script type="text/template">
+### Kort over cafeen
+
++ Borde vil vises grafisk på et kort over cafeen
++ tilgængelige borde vil være grønne andre røde
+</script></section><section  data-markdown><script type="text/template">
+
+## Manage reservation
+
+Hvis en kunde vil ændre sin reservation så er det muligt at gøre det ind til dagen derpå klokken 12.
+
++ tilføjelse af personer uden at skifte bord er muligt ind til reservationen starter hvis bordet har ekstra stole
++ tilføjelse af flere personer kræver nyt bord
++ aflysning koster et gebyr
+</script></section><section  data-markdown><script type="text/template">
+
+# MedarbejderView
+En medarbejder vil kunne logge ind og se listen over dagens reservationer, listen indeholder:
+</script></section><section  data-markdown><script type="text/template">
+## Dagens reservationer
+
++ Bordnummer
++ Navn
++ Antal
+
+Hvis man trykker på reservationen vil man få yderligere information, om reservationen og kunden i et enkelt reservations view.
+</script></section><section  data-markdown><script type="text/template">
+## Enkelt reservation view.
+
+Dette view indeholder alt information om en reservation.
+
++ Guru
++ Pris
++ Datoer
+    + Oprettelse
++ Evt ændringer
+    + Datoer
+    + Pris
++ Kundeinfo
+    + Navn
+    + Email
+    + Telefon
+</script></section><section  data-markdown><script type="text/template">
+## Statistik
+
+Man kan muligvis indsætte et view med statestik over hvornår der er mange reservationer osv, med grafer osv. 
+</script></section><section  data-markdown><script type="text/template">
+## Redigering af modeller
+
+Man kan (muligvis med extra admin rettigheder) gå ind og ændre et bords QR kode og antal sæder, tilføje og fjerne borde. 
+</script></section><section  data-markdown><script type="text/template">
+## Kallender view
+
+Man kan se en kallender for en måned af gangen hvor hver dag viser antallet af reservationer.
+Man kan gå ind og se reservationer på andre dage, det er det samme view som **Dagens reservationer** bare for en anden dato.
+</script></section></div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {}, queryOptions);
+    </script>
+
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>
