@@ -30,6 +30,8 @@ Reservationen oprettes ved et bord meget lignende en biograf reservation hvor ku
     + dag på ugen
     + andre reservationer
 
+----
+
 Ud over bord reservationen kan man også bestille en eller flere guruer som kommer og spiller med en. (Der skal være plads ved bordet)
 
 ---
@@ -76,6 +78,9 @@ Dette view indeholder alt information om en reservation.
 + Pris
 + Datoer
     + Oprettelse
+
+----
+
 + Evt ændringer
     + Datoer
     + Pris
